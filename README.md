@@ -1,4 +1,4 @@
-#### Genius Scraper
+# Genius Scraper
 An application/library for scraping raw text lyrics from rap genius via it's public facing API. Uses Python
 and the BeautifulSoup (bs4) library.
 
@@ -7,7 +7,7 @@ Development in progress.
 The core logic for this application was inspired/lifted from the approach describe [in this article](https://bigishdata.com/2016/09/27/getting-song-lyrics-from-geniuss-api-scraping/)
 from Big-ish data.
 
-# Improvements provided by this project (will) include:
+### Improvements provided by this project (will) include:
 
 * a modular application with an interactive CLI (or perhaps a primitive GUI)
 
@@ -15,7 +15,7 @@ from Big-ish data.
 
 * batch lyric retrieval and storage
 
-# Possible future enhancements:
+#### Possible future enhancements:
 
 * A tie in with the Discogs API to retrieve song titles by album and/or artist. This information is not exposed or easily retrieved from the Genius API at the time of writing.
 
