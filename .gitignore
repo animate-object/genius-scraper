@@ -1,3 +1,7 @@
+# secret key
+/app/resources/secrets
+/app/resources/secrets/*
+
 # jetbrains config
 .idea/*
 
