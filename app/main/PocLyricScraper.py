@@ -8,7 +8,7 @@ SEARCH_URL = BASE_URL + "/search"
 song_title = "Stayin Alive"
 artist_name = "The Bee Gees"
 data = {'q': song_title}
-headers = {'Authorization': 'Bearer {}'.format(getAccessToken())}
+headers = {'Authorization': 'Bearer {}'.format(get_access_token())}
 
 response = requests.get(SEARCH_URL, data=data, headers=headers)
 

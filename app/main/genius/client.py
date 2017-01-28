@@ -44,7 +44,7 @@ class Client:
         return song_info
 
     def _get_headers(self):
-        return {"Authorization": 'Bearer {}'.format(AccessUtil.getAccessToken())}
+        return {"Authorization": 'Bearer {}'.format(AccessUtil.get_access_token())}
 
 # some test data
 # song1 = Song("1979", "Smashing Pumpkins")

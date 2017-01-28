@@ -17,3 +17,8 @@ class LyricsNotFoundException(Exception):
             title, artist, path
         )
 
+
+class NoSuchPropertyException(Exception):
+    def __init__(self, message, property_name):
+        super(NoSuchPropertyException, self).__init__(message)
+        self.errors = "Could not find property <{}> in app-config".format(property_name)

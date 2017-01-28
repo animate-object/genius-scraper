@@ -4,22 +4,24 @@ import requests
 
 REQUEST_URL = "https://api.genius.com/oauth/token"
 
-def getAccessToken():
-    credentialsLocation = os.path.join(
+
+def get_access_token():
+    # TODO refactor to save current access token until it expires. May require rethinking around requests.
+    credentials_location = os.path.join(
         os.path.dirname(__file__), '../../resources/secrets/genius-secret-key.json'
     )
 
-    with open(credentialsLocation, "r") as secretIn:
-        secretJson = json.load(secretIn)
-        clientId = secretJson[u'clientId']
-        clientSecret = secretJson[u'clientSecret']
-        tokenResponse = requests.post(REQUEST_URL, data={
-            "client_id": clientId,
-            "client_secret": clientSecret,
+    with open(credentials_location, "r") as secretIn:
+        secret_json = json.load(secretIn)
+        client_id = secret_json[u'client_id']
+        client_secret = secret_json[u'client_secret']
+        token_response = requests.post(REQUEST_URL, data={
+            "client_id": client_id,
+            "client_secret": client_secret,
             "grant_type": "client_credentials"
         })
 
-        responseJson = tokenResponse.json()
+        response_json = token_response.json()
 
-        return responseJson[u'access_token']
+        return response_json[u'access_token']
 
