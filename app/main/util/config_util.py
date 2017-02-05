@@ -10,7 +10,6 @@ class ConfigUtil:
         with open(self.config_file_name(), 'r') as configIn:
             self.configJson = json.load(configIn)
 
-
     def config_file_name(self):
         return os.path.join(
             os.path.dirname(__file__), '../../resources/app-config.json'

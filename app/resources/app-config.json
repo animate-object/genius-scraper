@@ -1,4 +1,4 @@
 {
-  "use-non-default-data-store":false,
+  "use-default-data-store":true,
   "custom-data-store-file-path":""
 }
