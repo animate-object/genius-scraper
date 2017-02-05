@@ -48,20 +48,20 @@ class CustomFileWriter:
 
         return ret
 
-# Working test code
-f = CustomFileWriter()
-#  print(f.lyrics_directory)
-
+# # Working test code
+# f = CustomFileWriter()
+# #  print(f.lyrics_directory)
 #
-# print(
-#     f._replace_forbidden("abc*<>def")
-# )
-
-s = Song(title="test song", artist="the testers")
-s.setLyrics("""\
-this is a song
-a testing song
-we love to test our code
-""")
-
-f.write_to_file(s)
+# #
+# # print(
+# #     f._replace_forbidden("abc*<>def")
+# # )
+#
+# s = Song(title="test song", artist="the testers")
+# s.setLyrics("""\
+# this is a song
+# a testing song
+# we love to test our code
+# """)
+#
+# f.write_to_file(s)
