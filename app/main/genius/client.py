@@ -1,10 +1,10 @@
 import requests
 
-from app.main.songs.Song import Song
-from app.main.util import AccessUtil
+from app.main.songs.song import Song
+from app.main.util import access_util
 import pprint
 
-from app.main.util.exceptions import SongNotFoundException
+from app.main.util.exceptions import SongNotFoundException, HttpException
 
 defaultBase = "https://api.genius.com"
 
@@ -16,8 +16,13 @@ class Client:
         self.SEARCH_URL = self.BASE_URL + "/search"
 
     def find_song(self, song):
+        # TODO pull http requests out into wrapper... get method will pass in expected api response status code
+        # Wrapper will raise error for method to catch
         api_response = requests.get(url=self.SEARCH_URL, data={'q': song.title}, headers=self._get_headers())
         response_json = api_response.json()
+
+        if api_response.status_code != 200:
+            raise HttpException("HttpException on request", api_response.status_code, response_json)
         try:
             hits = response_json["response"]["hits"]
         except KeyError:
@@ -44,7 +49,7 @@ class Client:
         return song_info
 
     def _get_headers(self):
-        return {"Authorization": 'Bearer {}'.format(AccessUtil.get_access_token())}
+        return {"Authorization": 'Bearer {}'.format(access_util.get_access_token())}
 
 # some test data
 # song1 = Song("1979", "Smashing Pumpkins")

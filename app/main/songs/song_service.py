@@ -1,7 +1,7 @@
 import pprint
 
 from app.main import genius
-from app.main.songs.Song import Song
+from app.main.songs.song import Song
 from app.main.util.exceptions import *
 
 

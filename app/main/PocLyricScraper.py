@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as soup
-from app.main.util.AccessUtil import *
+from app.main.util.access_util import *
 import pprint
 
 BASE_URL = "https://api.genius.com"

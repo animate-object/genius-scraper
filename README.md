@@ -1,6 +1,6 @@
 # Genius Scraper
-An application/library for scraping raw text lyrics from rap genius via it's public facing API. Uses Python
-and the BeautifulSoup (bs4) library.
+An application/library for scraping raw text lyrics from rap genius via its public facing API and some less savory methods. 
+Uses Python and the BeautifulSoup (bs4) library.
 
 Development in progress.
 
@@ -17,9 +17,9 @@ from Big-ish data.
 
 #### Possible future enhancements:
 
-* A tie in with the Discogs API to retrieve song titles by album and/or artist. This information is not exposed or easily retrieved from the Genius API at the time of writing.
+* a tie in with the Discogs API to retrieve song titles by album and/or artist. This information is not exposed or easily retrieved from the Genius API at the time of writing.
 
-* A hosted rest API
+* a hosted rest API
 
 ### To examine and work with the existing code base
 
@@ -29,10 +29,9 @@ in `app/resources/secrets` called `genius-secret-key.json`. The file should look
 
 ```
 {
-    "clientId": <your client id>
-    "clientSecret": <your client secret>
+    "client_id": <your client id>
+    "client_secret": <your client secret>
 }
-
 ```
 
 These credentials are used for OAuth2 token generation, necessary to hit the API endpoints and to identify yourself to the API.
