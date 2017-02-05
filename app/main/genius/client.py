@@ -17,7 +17,7 @@ class Client:
 
     def find_song(self, song):
         # TODO pull http requests out into wrapper... get method will pass in expected api response status code
-        # Wrapper will raise error for method to catch
+        # Wrapper will raise any errors for the genius client to catch. Should clean up spaghetti code
         api_response = requests.get(url=self.SEARCH_URL, data={'q': song.title}, headers=self._get_headers())
         response_json = api_response.json()
 
@@ -51,7 +51,7 @@ class Client:
     def _get_headers(self):
         return {"Authorization": 'Bearer {}'.format(access_util.get_access_token())}
 
-# some test data
+# some manual test data
 # song1 = Song("1979", "Smashing Pumpkins")
 # song2 = Song("The Lung", "Dinosaur Jr.")
 # client = GeniusClient()
