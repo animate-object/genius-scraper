@@ -6,9 +6,9 @@ from app.main.util.exceptions import NoSuchPropertyException
 
 class ConfigUtil:
     def __init__(self):
-        self.configJson = {}
+        self.config_json = {}
         with open(self.config_file_name(), 'r') as configIn:
-            self.configJson = json.load(configIn)
+            self.config_json = json.load(configIn)
 
     def config_file_name(self):
         return os.path.join(
@@ -16,7 +16,7 @@ class ConfigUtil:
         )
 
     def get_property(self, property_name):
-        if property_name in self.configJson.keys():
-            return self.configJson[property_name]
+        if property_name in self.config_json.keys():
+            return self.config_json[property_name]
         raise NoSuchPropertyException("Failed to find requested property", property_name)
 

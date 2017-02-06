@@ -15,28 +15,41 @@ class CustomFileWriter:
         if not self.use_default:
             raise NotImplementedError("haven't implemented non default data stores yet")
 
+    def write_songs(self, songs):
+        l = len(songs)
+        for i, song in enumerate(songs):
+            try:
+                print("Writing to file {} of {}: {} by {}".format(i + 1, l, song.title, song.artist))
+                self.write_to_file(song)
+            except IOError as e:
+                print("Failed to write {} by {}".format(song.title, song.lyrics))
+                print(e.errors)
+
     def write_to_file(self, song):
-        artist_dir_name = self._replace_forbidden(
-            '-'.join(song.artist.lower().split())
-        )
+        if song.lyrics:
+            artist_dir_name = self._replace_forbidden(
+                '-'.join(song.artist.lower().split())
+            )
 
-        song_file_name = self._replace_forbidden(
-            '-'.join(song.title.lower().split())[:20]
-        ) + ".txt"
+            song_file_name = self._replace_forbidden(
+                '-'.join(song.title.lower().split())[:50]
+            ) + ".txt"
 
-        artist_path = os.path.join(self.lyrics_directory, artist_dir_name)
+            artist_path = os.path.join(self.lyrics_directory, artist_dir_name)
 
-        if not os.path.isdir(artist_path):
-            os.mkdir(artist_path)
+            if not os.path.isdir(artist_path):
+                os.mkdir(artist_path)
 
-        full_path = os.path.join(artist_path, song_file_name)
+            full_path = os.path.join(artist_path, song_file_name)
 
-        with open(full_path, "w") as out:
-            out.write("## ARTIST: " + song.artist + "\n")
-            out.write("## TITLE: " + song.title + "\n")
-            out.write("\n\n")
-
-            out.write(song.lyrics)
+            with open(full_path, "w", encoding="utf-8") as out:
+                out.write("#" + "-"*80 + "\n")
+                out.write("~ARTIST " + song.artist + "\n")
+                out.write("~TITLE " + song.title + "\n")
+                out.write("#" + "-"*80 + "\n")
+                out.write(song.lyrics)
+        else:
+            print('COULD NOT WRITE FILE\n\tNo lyrics to write for {}'.format(song))
 
     def _replace_forbidden(self, path_part, replace_with="#"):
         ret = ""
@@ -47,21 +60,3 @@ class CustomFileWriter:
                 ret += char
 
         return ret
-
-# # Working test code
-# f = CustomFileWriter()
-# #  print(f.lyrics_directory)
-#
-# #
-# # print(
-# #     f._replace_forbidden("abc*<>def")
-# # )
-#
-# s = Song(title="test song", artist="the testers")
-# s.setLyrics("""\
-# this is a song
-# a testing song
-# we love to test our code
-# """)
-#
-# f.write_to_file(s)

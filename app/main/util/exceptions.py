@@ -12,7 +12,7 @@ class SongNotFoundException(Exception):
 
 class LyricsNotFoundException(Exception):
     def __init__(self, message, title, artist, path):
-        super(SongNotFoundException, self).__init__(message)
+        super(LyricsNotFoundException, self).__init__(message)
         self.errors = "Could not locate song <{}> by artist <{}> at path {}>".format(
             title, artist, path
         )
