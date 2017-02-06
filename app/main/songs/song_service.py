@@ -18,13 +18,16 @@ class SongService:
 
     def populate_song_with_lyrics(self, song):
         song.path = self._get_path_for_song(song)
-        song.lyrics = self.scraper.scrapeLyrics(song.path)
+        song.lyrics = self.scraper.scrape_lyrics(song.path)
 
     def populate_songs_with_lyrics(self, songs):
-        for song in songs:
+        l = len(songs)
+        for i, song in enumerate(songs):
             try:
+                print("Finding lyrics for song {} of {}: {} by {}".format(i + 1, l, song.title, song.artist))
                 self.populate_song_with_lyrics(song)
             except (SongNotFoundException, LyricsNotFoundException, SongPathNotFoundException) as e:
+                print("Failed to find lyrics for {} by {}".format(song.title, song.artist))
                 print(e.errors)
 
     def _get_path_for_song(self, song):
@@ -41,14 +44,3 @@ class SongService:
     def _get_paths_for_songs(self, songs):
         songs_meta_data = [self.client.find_song(song) for song in songs]
         return [smd["path"] for smd in songs_meta_data]
-
-
-# service = SongService(genius_client=genius.client.Client(), genius_scraper=genius.scraper.Scraper())
-# song1 = Song("m.A.A.d. city", "Kendrick Lamar")
-# song2 = Song("N.Y. State of Mind", "Nas")
-# song3 = Song("not a real song", "not a real artist")
-# songs = [song1, song2, song3]
-# service.populate_songs_with_lyrics(songs)
-#
-# for song in songs:
-#     print(song.lyrics)

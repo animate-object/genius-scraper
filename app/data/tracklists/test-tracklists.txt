@@ -1,0 +1,24 @@
+# This is a sample track list. # denotes comments
+# ~ denotes metadata properties, for now just 'ARTIST'
+~ARTIST Kendrick Lamar
+# All songs following an 'artist' flag will be tagged with that artist
+
+Wesley's Theory
+King Kunta
+Institutionalized
+Hood Politics
+i
+
+~ARTIST Pavement
+Gold Soundz
+Cut Your Hair
+Frontwards
+
+~ARTIST Motion City Soundtrack
+Everything is Alright
+
+~ARTIST Yo La Tengo
+You Can Have It All
+
+~ARTIST Creedence Clearwater Revival
+Fortunate Son

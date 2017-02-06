@@ -6,8 +6,13 @@ class Song:
         self.path = path
         self.lyrics = lyrics
 
-    def setPath(self, path):
+    def __str__(self):
+        return "<Song Object | {} by {}>".format(
+            self.title, self.artist
+        )
+
+    def set_path(self, path):
         self.path = path
 
-    def setLyrics(self, lyrics):
+    def set_lyrics(self, lyrics):
         self.lyrics = lyrics
