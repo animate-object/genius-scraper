@@ -46,3 +46,13 @@ tmtagsHistory
 *.sublime-project
 *.sublime-workspace
 .bundle
+/app/data/tracklists/*
+!/app/data/tracklists/sample-tracklist.txt
+app/__pycache__/
+app/data/lyrics/*
+app/logs/*
+app/main/__pycache__/
+app/main/file/__pycache__/
+app/main/genius/__pycache__/
+app/main/songs/__pycache__/
+app/main/util/__pycache__/

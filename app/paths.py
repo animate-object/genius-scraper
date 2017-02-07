@@ -3,6 +3,8 @@ import os.path
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+LOG_DIR = os.path.dirname(os.path.join(APP_ROOT, 'logs\\'))
+
 CONFIG_JSON = os.path.join(APP_ROOT, 'resources\\app-config.json')
 
 DATA_DIR = os.path.join(APP_ROOT, 'data\\')

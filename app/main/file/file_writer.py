@@ -9,7 +9,7 @@ from app.paths import DATA_DIR
 class CustomFileWriter:
     def __init__(self):
         self.config = ConfigUtil()
-        self.lyrics_directory = DATA_DIR
+        self.lyrics_directory = DATA_DIR + "\\lyrics\\"
         self.use_default = self.config.get_property("use-default-data-store")
 
         if not self.use_default:
