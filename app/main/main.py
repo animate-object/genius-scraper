@@ -9,7 +9,7 @@ import os.path
 # Proof of concept code for testing
 
 test_track_list_path = os.path.join(
-    DATA_DIR, *['tracklists', 'test-tracklists.txt']
+    DATA_DIR, *['tracklists', 'sample-tracklist.txt']
 )
 
 f = CustomFileWriter()
